@@ -14,8 +14,10 @@ int main()
     fscanf(infile,"%d",&T);
     printf("T = %d\n",T);
     
-    buildTestCase(infile,a,&N,&pro);
-    solveTestCase(a,N,pro); 
+    for(int i=0;i<T;i++) {
+        buildTestCase(infile,a,&N,&pro);
+        solveTestCase(a,N,pro); 
+    }
 
     fclose(infile);
     return 0;
@@ -32,7 +34,24 @@ void buildTestCase(FILE* in, int* a, int* elems, int* product) {
 }
 //------------------------------ solveTestCase ------------------------------  
 void solveTestCase(int* a, int elems, int product) {
-    // Prints 'yse' if a[] contains two elements the product of which is
-    // equal to product.
+    // Prints 'yes' if a[] contains two elements the product of which is
+    // equal to product else print 'no'.
+
+    int num1 = 0,num2 = 0;
+    for(int i=0;i<elems-1;i++) {
+        if((product % a[i] == 0) && (product != a[i])) {
+            num1 = a[i];
+            for(int j=i+1;j<elems;j++) {
+                if(num1 * a[j] == product) {
+                    num2 = a[j];
+                    printf("Yes, %d x %d = %d.\n",num1,num2,product);
+                    return;
+                }
+            }
+        }
+    }
+    printf("No.\n");
+    return;
+}
 
 
