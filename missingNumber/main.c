@@ -18,8 +18,8 @@ int main()
         } else {
             if(myArray[i] != expectedNext) {
                 missingNumber = expectedNext;
-                expectedNext = myArray[i] + 1;
             }
+            expectedNext = myArray[i] + 1;
         }
     }
     printf("The missing number in ");

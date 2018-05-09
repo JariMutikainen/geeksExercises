@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1525850550 source:f:\githublocalrepos\geeksexercises\missingnumber\main.c
+	<stdio.h>
+	<stdlib.h>
+
