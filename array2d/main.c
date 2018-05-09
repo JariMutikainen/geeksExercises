@@ -19,13 +19,14 @@ int main()
         return -1;
     }
     fscanf(infile,"%d",&T);
-    getDimensions(infile,&rows,&cols);
-    matrix = makeMatrix(infile,rows,cols);
-    printMatrix(matrix,rows,cols);
-    findMinOnes(matrix,rows,cols);
-    free(matrix);
-    matrix = NULL;
-
+    for(int test=0;test < T;test++) {
+        getDimensions(infile,&rows,&cols);
+        matrix = makeMatrix(infile,rows,cols);
+        printMatrix(matrix,rows,cols);
+        findMinOnes(matrix,rows,cols);
+        free(matrix);
+        matrix = NULL;
+    }
 
 
     fclose(infile);
@@ -70,8 +71,23 @@ void findMinOnes(int* matrix, int r, int c) {
     // of ones. All rows contain only zeros and ones, and have been sorted
     // into the ascending order.
 
-    int firstOne = 1000; // Out of range value on purpose
-    int winnerRow = -1;
+    int rowWithMostZeros = -1;
+    int mostZeros = 0;
+    int zeroesOnThisRow = 0;
+    int atLeastOne1Exists = 0;
     for(int row=0;row<r;row++) {
+        zeroesOnThisRow = 0;
         for(int col=0;col<c;col++) {
+            if(*(matrix + row * c + col) == 0) zeroesOnThisRow++;
+            else atLeastOne1Exists = 1;
+        }
+        if(zeroesOnThisRow > mostZeros) {
+            rowWithMostZeros = row;
+            mostZeros = zeroesOnThisRow;
+        }
+    }
+    if(!atLeastOne1Exists) printf("-1\n");
+    else printf("%d\n",rowWithMostZeros);
+    return;
+}
 
