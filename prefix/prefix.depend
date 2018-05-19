@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1526736966 source:f:\githublocalrepos\geeksexercises\prefix\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
