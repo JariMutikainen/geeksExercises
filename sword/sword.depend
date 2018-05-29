@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1527581317 source:f:\githublocalrepos\geeksexercises\sword\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
