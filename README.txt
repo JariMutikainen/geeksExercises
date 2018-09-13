@@ -8,3 +8,4 @@
  git checkout master # Goto the master branch in the local repository
  git log -20 --graph --decorate --oneline master # Show the last 20 commits.
  git log -20 --graph --decorate --oneline origin/master 
+# ToinenKokeilussa tehty rivi.
