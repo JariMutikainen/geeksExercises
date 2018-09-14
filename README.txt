@@ -48,3 +48,11 @@ git branch -d jari/readme
 # to include those changes to your development branch. You can do this
 # by rebasing your local development branch to the newest commit of the
 # origin/master. These are the steps you need to take.
+git fetch -t --prune # Update the local repository to match the remote repo.
+git checkout jari/readme
+git rebase origin/master # Move the branching point to the last commit of
+                         # the local origin/master
+# Solve the conflicts by editing the conflicting file
+git add README.txt # Add the resolved file into the stage after saving it.
+git rebase --continue
+
